@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Pressable } from 'react-native'
 import { BottomMenuItemType, TypeNav } from './bottomMenu.interface'
 import { Feather } from '@expo/vector-icons'
-import { PRIMARY_COLOR } from '@/constants'
+import { COLORS } from '@/constants'
 
 interface BottomMenuItemProps {
   item: BottomMenuItemType
@@ -12,7 +12,8 @@ interface BottomMenuItemProps {
 
 const BottomMenuItem: FC<BottomMenuItemProps> = ({ currentRoute, item, nav }) => {
   const isActive = currentRoute === item.path
-  const iconColor = isActive ? PRIMARY_COLOR : '#8d8a97'
+  const { primary, secondary } = COLORS
+  const iconColor = isActive ? primary.main : secondary.main
 
   const handleOnPress = () => {
     nav(item.path)
