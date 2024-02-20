@@ -20,8 +20,24 @@ const BottomMenuItem: FC<BottomMenuItemProps> = ({ currentRoute, item, nav }) =>
   }
 
   return (
-    <Pressable className="w-[24%] items-center" onPress={handleOnPress}>
-      <Feather name={item.iconName} size={26} color={iconColor} />
+    <Pressable onPress={handleOnPress} className="w-[24%] items-center ">
+      <Feather
+        name={item.iconName}
+        size={26}
+        color={iconColor}
+        style={
+          isActive && {
+            shadowColor: COLORS.primary.main,
+            shadowOffset: {
+              width: 0,
+              height: 3,
+            },
+            shadowOpacity: 0.6,
+            shadowRadius: 8,
+            elevation: 20,
+          }
+        }
+      />
     </Pressable>
   )
 }

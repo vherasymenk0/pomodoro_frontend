@@ -36,7 +36,7 @@ const PasswordField: FC<{ control: Control<AuthFormData> }> = ({ control }) => {
               onBlur={onBlur}
               autoCapitalize="none"
               className="text-white text-lg"
-              secureTextEntry
+              // secureTextEntry
             />
           </View>
           {!!error && <Text className="text-red-500">{error.message}</Text>}

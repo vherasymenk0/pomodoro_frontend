@@ -21,6 +21,7 @@ export const Auth = ({}) => {
 
   const onSubmit: SubmitHandler<AuthFormData> = (data) => {
     setUser({ _id: '1', ...data })
+    reset()
   }
 
   const isLoading = false
@@ -39,7 +40,7 @@ export const Auth = ({}) => {
               <EmailField control={control} />
               <PasswordField control={control} />
 
-              <Button>Submit</Button>
+              <Button onPress={handleSubmit(onSubmit)}>Submit</Button>
 
               <Pressable className="w-16 self-end" onPress={() => setIsReg(!isReg)}>
                 <Text className="text-opacity-60 text-white text-base mt-3">
