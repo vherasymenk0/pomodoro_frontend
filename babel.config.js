@@ -11,7 +11,12 @@ module.exports = function (api) {
         },
       ],
       ['nativewind/babel'],
-      ['inline-dotenv'],
+      [
+        'inline-dotenv',
+        {
+          unsafe: true,
+        },
+      ],
     ],
   }
 }

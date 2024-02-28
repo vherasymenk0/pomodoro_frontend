@@ -17,7 +17,7 @@ export const CircleTimer = ({ key, status, duration, isRunning, onReset, onCompl
   const {
     primary: { main, dark, light },
   } = COLORS
-  console.log('render')
+
   return (
     <CountdownCircleTimer
       key={key}
