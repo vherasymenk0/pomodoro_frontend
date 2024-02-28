@@ -7,6 +7,7 @@ import Loader from '@/components/screens/ui/Loader'
 import Button from '@/components/screens/ui/Button'
 import EmailField from '@/components/screens/auth/EmailField'
 import PasswordField from '@/components/screens/auth/PasswordField'
+import useActions from '@/hooks/useActions'
 
 export const Auth = ({}) => {
   const [isReg, setIsReg] = useState(false)
@@ -17,14 +18,15 @@ export const Auth = ({}) => {
     },
     mode: 'onChange',
   })
-  const { setUser } = useAuth()
+  const { login, register } = useActions()
+  const { isLoading } = useAuth()
 
   const onSubmit: SubmitHandler<AuthFormData> = (data) => {
-    setUser({ _id: '1', ...data })
+    if (isReg) register(data)
+    else login(data)
+
     reset()
   }
-
-  const isLoading = false
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

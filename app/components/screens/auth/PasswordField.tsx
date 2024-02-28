@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { PASSWORD_VALIDATION } from './AuthValidation'
 import { Text, TextInput, View } from 'react-native'
 import cn from 'clsx'
 import { Control, Controller } from 'react-hook-form'
@@ -15,10 +14,6 @@ const PasswordField: FC<{ control: Control<AuthFormData> }> = ({ control }) => {
         minLength: {
           value: 6,
           message: 'Password should be more then 6 symbols',
-        },
-        pattern: {
-          value: PASSWORD_VALIDATION,
-          message: 'Your password is invalid',
         },
       }}
       render={({ field: { value, onChange, onBlur }, fieldState: { error } }) => (

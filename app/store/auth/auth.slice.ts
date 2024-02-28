@@ -1,4 +1,4 @@
-import { AuthInitialState } from '@/store/auth/auth.interface'
+import { AuthInitialState } from './auth.interface'
 import { createSlice } from '@reduxjs/toolkit'
 import { login, logout, register } from './auth.actions'
 

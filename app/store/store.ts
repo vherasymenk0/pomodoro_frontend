@@ -1,5 +1,15 @@
 import storage from 'redux-persist/lib/storage'
-import { PersistConfig, persistReducer, persistStore } from 'redux-persist'
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PersistConfig,
+  persistReducer,
+  persistStore,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+} from 'redux-persist'
 import { rootReducer } from './rooReducer'
 import { configureStore } from '@reduxjs/toolkit'
 
@@ -14,6 +24,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE],
+      },
+    }),
 })
 
 export const persistor = persistStore(store)

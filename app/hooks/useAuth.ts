@@ -1,6 +1,5 @@
-import { useContext } from 'react'
-import { AuthContext } from '@/providers/AuthProvider'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 
-const useAuth = () => useContext(AuthContext)
+const useAuth = () => useTypedSelector((state) => state.auth)
 
 export default useAuth

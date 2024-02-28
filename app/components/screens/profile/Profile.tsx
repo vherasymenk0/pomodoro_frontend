@@ -1,18 +1,14 @@
 import React from 'react'
 import { Layout } from '@/components/screens/ui/layout/Layout'
 import Button from '@/components/screens/ui/Button'
-import useAuth from '@/hooks/useAuth'
+import useActions from '@/hooks/useActions'
 
 export const Profile = ({}) => {
-  const { setUser } = useAuth()
-
-  const handleLogout = () => {
-    setUser(null)
-  }
+  const { logout } = useActions()
 
   return (
     <Layout title="Profile">
-      <Button onPress={handleLogout}>Logout</Button>
+      <Button onPress={logout}>Logout</Button>
     </Layout>
   )
 }
